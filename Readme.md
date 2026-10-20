@@ -8,7 +8,7 @@ This project is a backend Node.js/Express API service that uses a MySQL database
 
 Before running this project, ensure you have the following installed on your machine:
 
-- **Node.js** (v14 or higher recommended)
+- **Node.js** (v16+ or higher recommended)
 - **npm** (comes bundled with Node.js) or **yarn**
 - **MySQL Database Server** (e.g., via MySQL Workbench, XAMPP, or standalone MySQL)
 
@@ -52,6 +52,18 @@ JWT_SECRET=Add a JWT Key here
 
 ---
 
+## Generating a Secure JWT Secret
+
+If you need to generate a secure random string for your JWT_SECRET, you can run the following Node.js command in your terminal:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+```
+
+Copy the generated output and paste it as the value for JWT_SECRET in your .env file.
+
+---
+
 ## Database Setup
 
 1. Start your local MySQL server (e.g., start Apache/MySQL from XAMPP or run your MySQL service).
@@ -62,7 +74,7 @@ CREATE DATABASE api;
 ```
 
 3. Ensure the database user (`root` in this setup) has read and write privileges on the `api` database.
-4. *(Optional)* Run database migrations or seed scripts if available:
+4. _(Optional)_ Run database migrations or seed scripts if available:
    ```bash
    npm run migrate
    ```
@@ -94,14 +106,14 @@ Once running, the server will be available at:
 
 ## Key Environment Variables Breakdown
 
-| Variable | Description | Default Value |
-| :--- | :--- | :--- |
-| `DB_HOST` | Database host location | `localhost` |
-| `DB_USER` | MySQL database username | `root` |
-| `DB_PASSWORD` | MySQL database password | *(empty)* |
-| `DB_NAME` | MySQL database name | `api` |
-| `PORT` | Local port number for the server | `3000` |
-| `JWT_SECRET` | Secret key used to sign and verify JSON Web Tokens | *(64-byte hex string)* |
+| Variable      | Description                                        | Default Value          |
+| :------------ | :------------------------------------------------- | :--------------------- |
+| `DB_HOST`     | Database host location                             | `localhost`            |
+| `DB_USER`     | MySQL database username                            | `root`                 |
+| `DB_PASSWORD` | MySQL database password                            | _(empty)_              |
+| `DB_NAME`     | MySQL database name                                | `api`                  |
+| `PORT`        | Local port number for the server                   | `3000`                 |
+| `JWT_SECRET`  | Secret key used to sign and verify JSON Web Tokens | _(64-byte hex string)_ |
 
 ---
 
