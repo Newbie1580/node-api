@@ -91,17 +91,6 @@ To start the server with hot-reloading (using `nodemon` if configured):
 npm run dev
 ```
 
-### Production Mode
-
-To start the server in standard production mode:
-
-```bash
-npm build
-```
-
-Once running, the server will be available at:
-`http://localhost:3000`
-
 ---
 
 ## Key Environment Variables Breakdown
